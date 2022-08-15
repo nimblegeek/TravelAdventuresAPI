@@ -1,10 +1,10 @@
-package com.codecademy.plants.controllers;
+package com.example.TravelAdventuresAPI.Controller;
 
 import com.codecademy.plants.entities.Adventure;
-import com.codecademy.plants.repositories.AdventureRepository;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import com.example.TravelAdventuresAPI.repository.AdventureRepository;
+import org.springframework.web.bind.annotation.*;
+
+
 import java.util.List;
 
 
@@ -24,9 +24,15 @@ public class TravelAdventuresController {
     }
 
     @GetMapping("/bycountry/{country}")
-    public List<Adventure> getByCountry(@PathVariable("country") String
-                                                country) {
-        return this.adventureRepository.findByCountry(country);
+    public List<Adventure> getByCountry(@PathVariable("country") String country) {
+        List<Adventure> byCountry = this.adventureRepository.findByCountry(country);
+        return byCountry;
     }
+    @GetMapping("/bystate")
+    public List<Adventure> getByState(@RequestParam(name="state") String
+                                              state) {
+        return this.adventureRepository.findByState(state);
+    }
+
 
 }

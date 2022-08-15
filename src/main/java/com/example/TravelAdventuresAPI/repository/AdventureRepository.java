@@ -1,4 +1,4 @@
-package com.codecademy.plants.repositories;
+package com.example.TravelAdventuresAPI.repository;
 
 import java.util.List;
 
